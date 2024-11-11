@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+{% block content %}
+{% for message in messages %}
+		<div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>
+		<i class="fa-solid fa-thumbs-up"></i> {{ message }}
+		</div>
+{% endfor %}
+
+	
+
+		<!-- ============================ Searching Destination Lists Start ================================== -->
+		<section class="gray-simple">
+			<div class="container">
+				<div class="row justify-content-between gy-4 gx-xl-4 gx-lg-3 gx-md-3 gx-4">
+
+					<!-- Sidebar -->
+					<section>
+                        <h3>You selected:</h3>
+						<div class="filter-searchBar bg-white rounded-3">
+							
+								<div class="card list-layout-block rounded-3 p-3">
+									<div class="row">
+
+										<div class="col-xl-4 col-lg-3 col-md">
+											<div class="cardImage__caps rounded-2 overflow-hidden h-100">
+												<a href="{% url 'tour-detail' tour.slug %}"><img class="img-fluid h-100 object-fit" src=" {{tour.image_1.url}}" alt="image"></a>
+											</div>
+										</div>
+
+										<div class="col-xl col-lg col-md">
+											<div class="listLayout_midCaps mt-md-0 mt-3 mb-md-0 mb-3">
+												<div class="d-flex align-items-center justify-content-start mb-1">
+													<span class="label bg-light-success text-success">{{tour.location|title}}</span>
+												</div>
+												<a href="{% url 'tour-detail' tour.slug %}"><h4 class="fs-5 fw-bold mb-1">{{tour.name|title}}</h4></a>
+												<div class="exlop-date"><span class="text-dark fw-medium"><i
+														class="fa-regular fa-calendar me-2"></i>{{tour.date_depart}}</span></div>
+											</div>
+												<div
+											class="single-card d-flex align-items-center justify-content-between px-3 py-3 border-top border-bottom">
+											
+												<p>{{tour.overview|truncatewords:14}}</p>
+												<div class="detail ellipsis-container mt-3">
+													<span class="ellipsis">{{tour.inclusion_1|title}}</span>
+													<span class="ellipsis">{{tour.inclusion_2|title}}</span>
+													<span class="ellipsis">{{tour.inclusion_3|title}}</span>
+													<span class="ellipsis">{{tour.inclusion_4|title}}</span>
+													<span class="ellipsis">{{tour.inclusion_5|title}}</span>
+												</div>
+											</div>
+										</div>
+
+										<div
+											class="col-xl-auto col-lg-auto col-md-auto text-right text-md-left d-flex align-items-start align-items-md-end flex-column">
+											
+
+											<div class="position-relative mt-auto full-width">
+												{% if tour.discount %}
+												<div class="d-flex align-items-center justify-content-start justify-content-md-end mb-1">
+													<span class="label bg-light-danger text-danger">{{tour.discount}}% Off</span>
+												</div>
+												<div class="d-flex align-items-center justify-content-start justify-content-md-end">
+													<div class="text-muted-2 fw-medium text-decoration-line-through me-2">₦{{tour.price}}</div>
+													<div class="text-dark fw-bold fs-3">₦{{tour.discounted_price}}</div>
+												</div>
+												{% else %}
+												<div class="d-flex align-items-center justify-content-start justify-content-md-end">
+													<div class="text-dark fw-bold fs-3">₦{{tour.price}}</div>
+												</div>
+												{% endif %}
+												<div class="d-flex align-items-start align-items-md-end text-start text-md-end flex-column">
+													<a href="{% url 'tour-detail' tour.slug %}" class="btn btn-md btn-primary full-width fw-medium px-lg-4">See More<i
+															class="fa-solid fa-arrow-trend-up ms-2"></i></a>
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+							<!-- /Single List -->
+							</div>
+
+							<div class="col-xl-7 col-lg-7 col-md-12">
+                                <div class="contactForm gray-simple p-4 rounded-3">
+                                    <form method="post">
+                                        {% csrf_token %}
+                                        <div class="row align-items-center">
+        
+                                            <div class="col-xl-12 col-lg-12 col-md-12">
+                                                <div class="touch-block d-flex flex-column mb-4">
+                                                    <h2>Your details</h2>
+                                                    <p>Please fill the form below and we will get back to you. </p>
+                                                </div>
+                                            </div>
+        
+                                            <div class="col-xl-6 col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-label">Your Name*</label>
+                                                    <input required="True" type="text" name="name" class="form-control">
+                                                </div>
+                                            </div>
+        
+                                            <div class="col-xl-6 col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-label">Email Address*</label>
+                                                    <input required="True" type="email" name="email" class="form-control">
+                                                </div>
+                                            </div>
+        
+                                            <div class="col-xl-6 col-lg-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-label">Phone No.*</label>
+                                                    <input required="True" type="text" name="phone" class="form-control">
+                                                </div>
+                                            </div>
+        
+        
+                                            <div class="col-xl-12 col-lg-12 col-md-12">
+                                                <div class="form-group mb-0">
+                                                    <button type="submit" class="btn fw-medium btn-primary">Send Message<i
+                                                            class="fa-solid fa-paper-plane ms-2"></i></button>
+                                                </div>
+                                            </div>
+        
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+        
+
+							</div>
+						</div>
+					</div>
+
+					<!-- All List -->
+					
+
+						<div class="row align-items-center g-4 mt-2">
+							
+							
+						
+
+							
+
+						</div>
+
+					
+
+				</div>
+			</div>
+		</section>
+		<!-- ============================ Destination Searches Lists End ================================== -->
+
+{% endblock content %}

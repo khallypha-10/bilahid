@@ -1,0 +1,738 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+	<!-- ============================================================== -->
+	<!-- Preloader - style you can find in spinners.css -->
+	<!-- ============================================================== -->
+	<div id="preloader">
+		<div class="preloader"><span></span><span></span></div>
+	</div>
+	{% for message in messages %}
+	<div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>
+	<i class="fa-solid fa-thumbs-up"></i> {{ message }}
+	</div>
+{% endfor %}
+	<!-- ============================================================== -->
+	<!-- Main wrapper - style you can find in pages.scss -->
+	<!-- ============================================================== -->
+	<div id="main-wrapper">
+
+		<!-- ============================================================== -->
+		<!-- Top header  -->
+		<!-- ============================================================== -->
+		
+		<div class="clearfix"></div>
+		<!-- ============================================================== -->
+		<!-- Top header  -->
+		<!-- ============================================================== -->
+
+
+		<!-- ============================ Hero Banner  Start================================== -->
+		<div class="image-cover hero-header bg-white" style="background:url({% static 'images/home-1.png' %})no-repeat;" data-overlay="5">
+			<div class="container">
+
+				<!-- Search Form -->
+				<div class="row justify-content-center align-items-center">
+					<div class="col-xl-9 col-lg-10 col-md-12 col-sm-12">
+						<div class="position-relative text-center mb-5">
+							<h1>Welcome To <span class="position-relative z-4">Bilahid Cation<span
+										class="position-absolute top-50 start-50 translate-middle d-none d-md-block mt-4">
+										<svg width="185px" height="23px" viewBox="0 0 445.5 23">
+											<path class="fill-white opacity-7"
+												d="M409.9,2.6c-9.7-0.6-19.5-1-29.2-1.5c-3.2-0.2-6.4-0.2-9.7-0.3c-7-0.2-14-0.4-20.9-0.5 c-3.9-0.1-7.8-0.2-11.7-0.3c-1.1,0-2.3,0-3.4,0c-2.5,0-5.1,0-7.6,0c-11.5,0-23,0-34.5,0c-2.7,0-5.5,0.1-8.2,0.1 c-6.8,0.1-13.6,0.2-20.3,0.3c-7.7,0.1-15.3,0.1-23,0.3c-12.4,0.3-24.8,0.6-37.1,0.9c-7.2,0.2-14.3,0.3-21.5,0.6 c-12.3,0.5-24.7,1-37,1.5c-6.7,0.3-13.5,0.5-20.2,0.9C112.7,5.3,99.9,6,87.1,6.7C80.3,7.1,73.5,7.4,66.7,8 C54,9.1,41.3,10.1,28.5,11.2c-2.7,0.2-5.5,0.5-8.2,0.7c-5.5,0.5-11,1.2-16.4,1.8c-0.3,0-0.7,0.1-1,0.1c-0.7,0.2-1.2,0.5-1.7,1 C0.4,15.6,0,16.6,0,17.6c0,1,0.4,2,1.1,2.7c0.7,0.7,1.8,1.2,2.7,1.1c6.6-0.7,13.2-1.5,19.8-2.1c6.1-0.5,12.3-1,18.4-1.6 c6.7-0.6,13.4-1.1,20.1-1.7c2.7-0.2,5.4-0.5,8.1-0.7c10.4-0.6,20.9-1.1,31.3-1.7c6.5-0.4,13-0.7,19.5-1.1c2.7-0.1,5.4-0.3,8.1-0.4 c10.3-0.4,20.7-0.8,31-1.2c6.3-0.2,12.5-0.5,18.8-0.7c2.1-0.1,4.2-0.2,6.3-0.2c11.2-0.3,22.3-0.5,33.5-0.8 c6.2-0.1,12.5-0.3,18.7-0.4c2.2-0.1,4.4-0.1,6.7-0.1c11.5-0.1,23-0.2,34.6-0.4c7.2-0.1,14.4-0.1,21.6-0.1c12.2,0,24.5,0.1,36.7,0.1 c2.4,0,4.8,0.1,7.2,0.2c6.8,0.2,13.5,0.4,20.3,0.6c5.1,0.2,10.1,0.3,15.2,0.4c3.6,0.1,7.2,0.4,10.8,0.6c10.6,0.6,21.1,1.2,31.7,1.8 c2.7,0.2,5.4,0.4,8,0.6c2.9,0.2,5.8,0.4,8.6,0.7c0.4,0.1,0.9,0.2,1.3,0.3c1.1,0.2,2.2,0.2,3.2-0.4c0.9-0.5,1.6-1.5,1.9-2.5 c0.6-2.2-0.7-4.5-2.9-5.2c-1.9-0.5-3.9-0.7-5.9-0.9c-1.4-0.1-2.7-0.3-4.1-0.4c-2.6-0.3-5.2-0.4-7.9-0.6 C419.7,3.1,414.8,2.9,409.9,2.6z">
+											</path>
+										</svg>
+									</span></span> </h1>
+							<p class="fs-5 fw-light">It's Time To Discover.</p>
+						</div>
+					</div>
+
+					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+						<div class="navTabbs d-flex align-items-center justify-content-center w-100 mb-2">
+							<ul class="nav nav-pills lights medium justify-content-center mb-3" id="tour-pills-tab" role="tablist">
+								<li class="nav-item">
+									<a class="nav-link active" data-bs-toggle="tab" href="#visa"><i class="fa-brands fa-cc-visa"></i> Visa</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" data-bs-toggle="tab" href="#flight"><i class="fa-solid fa-plane"></i> Flights</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" data-bs-toggle="tab" href="#tours"><i class="fa-solid fa-globe me-2"></i>Tour</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" data-bs-toggle="tab" href="#courses"><i class="fa-solid fa-graduation-cap"></i> Courses</a>
+								</li>
+							</ul>
+						</div>
+						<div class="search-wrap bg-white rounded-3 p-3">
+							<div class="tab-content">
+								<div class="tab-pane show active" id="visa">
+									<div class="row gy-3 gx-md-3 gx-sm-2">
+
+										
+										<div class="col-xl-4 col-lg-5 col-md-12">
+											<div class="row gy-3 gx-md-3 gx-sm-2">
+												<div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
+													<div class="card-footer bg-white py-3 px-4">
+														<a href="{% url 'visas' %}" class="btn btn-primary fw-medium w-100 mb-0">See Details</a>
+													</div>
+												</div>
+												
+											</div>
+										</div>
+
+									</div>	
+								</div>
+							
+								<div class="tab-pane" id="flight">
+									<form method="post" action="{% url 'flight-booking' %}">
+										{% csrf_token %}
+									<div class="row gx-lg-2 g-3">
+
+										<div class="col-xl-5 col-lg-5 col-md-12">
+										  <div class="row gy-3 gx-lg-2 gx-3">
+											<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 position-relative">
+											  <div class="form-group hdd-arrow mb-0">
+												<input class="form-control" required="True" placeholder="From" name="from" type="text" aria-label="default input example">
+											  </div>
+											  <div class="btn-flip-icon mt-md-0">
+												<button class="p-0 m-0 text-primary"><i class="fa-solid fa-right-left"></i></button>
+											  </div>
+											</div>
+											<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+											  <div class="form-groupp hdd-arrow mb-0">
+												<input class="form-control" required="True" placeholder="Going To" name="destination" type="text" aria-label="default input example">
+											  </div>
+											</div>
+										  </div>
+										</div>
+										<div class="col-xl-4 col-lg-4 col-md-12">
+										  <div class="row gy-3 gx-lg-2 gx-3">
+											<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+											  <div class="form-group mb-0">
+												<input class="form-control " required="True" name="name" type="text" placeholder="Name">
+											  </div>
+											</div>
+											<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+											  <div class="form-group mb-0">
+												<input class="form-control " required="True" name="email" type="text" placeholder="Email">
+											  </div>
+											</div>
+										  </div>
+										</div>
+										<div class="col-xl-2 col-lg-2 col-md-12">
+										  <div class="form-groupp hdd-arrow mb-0">
+											<input class="form-control " required="True" name="phone" type="text" placeholder="Phone Number">
+										  </div>
+										</div>
+										<div class="col-xl-2 col-lg-2 col-md-12">
+										  <div class="form-groupp hdd-arrow mb-0">
+											<input class="form-control fw-bold choosedate" required="True" required="True" name="date" type="text" placeholder=" Departure Date">
+										  </div>
+										</div>
+										<div class="col-xl-1 col-lg-1 col-md-12">
+										  <div class="form-group mb-0">
+											<button type="submit" class="btn btn-primary full-width fw-medium"><i
+												class="fa-solid fa-magnifying-glass fs-5"></i></button>
+										  </div>
+										</div>
+
+									  </div>
+								</div>
+							</form>
+								<div class="tab-pane" id="tours">
+									<form method="post" action="{% url 'search' %}">
+										{% csrf_token %}
+									<div class="row gy-3 gx-md-3 gx-sm-2">
+
+										<div class="col-xl-8 col-lg-7 col-md-12">
+											<div class="row gy-3 gx-md-3 gx-sm-2">
+												<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 position-relative">
+													<div class="form-group hdd-arrow mb-0">
+														<input class="form-control" required="True" name="q" type="text" placeholder="Search location" aria-label="default input example">
+													</div>
+												</div>
+												
+											</div>
+										</div>
+										<div class="col-xl-4 col-lg-5 col-md-12">
+											<div class="row gy-3 gx-md-3 gx-sm-2">
+												
+												<div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+													<div class="form-group mb-0">
+														<button type="submit" class="btn btn-primary full-width fw-medium"><i
+																class="fa-solid fa-magnifying-glass me-2"></i>Search</button>
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</form>
+								</div>
+								<div class="tab-pane" id="courses">
+									<div class="row gy-3 gx-md-3 gx-sm-2">
+
+										
+										<div class="col-xl-4 col-lg-5 col-md-12">
+											<div class="row gy-3 gx-md-3 gx-sm-2">
+												<div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
+													<div class="card-footer bg-white py-3 px-4">
+														<a href="{% url 'courses' %}" class="btn btn-primary fw-medium w-100 mb-0">See Details</a>
+													</div>
+												</div>
+												
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- </row> -->
+
+			</div>
+		</div>
+		<!-- ============================ Hero Banner End ================================== -->
+		{% if tourss %}
+		{% for tour in tourss %}
+		<!-- =========================== Tours Offers Start ====================================== -->
+		<section class="pt-5 pb-0">
+			<div class="container">
+				<div class="row align-items-center justify-content-center g-xl-4 g-lg-4 g-md-3 g-4">
+
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+						<div class="pop-touritems">
+							<a href="#" class="card rounded-3 border br-dashed border-2 m-0">
+								<div class="offers-container d-flex align-items-center justify-content-start p-2">
+									<div class="offers-flex position-relative">
+										<div class="offer-tags position-absolute start-0 top-0 mt-2 ms-2"><span
+												class="label text-light bg-danger fw-medium">{{tour.discount}}% Off</span></div>
+										<div class="offers-pic"><img src="{{tour.image_1.url}}" class="img-fluid rounded" width="110" alt="">
+										</div>
+									</div>
+									<div class="offers-captions ps-3">
+										<h4 class="city fs-6 m-0 fw-bold">
+											<span>{{tour.name|title}}</span>
+										</h4>
+										<p class="detail ellipsis-container">
+											<span class="ellipsis-item__normal">Round-trip</span>
+											<span class="separate ellipsis-item__normal"></span>
+											<span class="ellipsis-item">{{tour.days}}D/{{tour.nights}}N</span>
+											<span class="separate ellipsis-item__normal"></span>
+											<span class="ellipsis-item">{{tour.group}} group</span>
+										</p>
+										<div class="booking-wrapes d-flex align-items-center justify-content-between">
+											<div class="text-dark fw-bold fs-4">₦{{tour.discounted_price}}</div>
+													<div class="text-muted-2 fw-medium text-decoration-line-through ms-2">₦{{tour.price}}</div>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+
+					
+
+				</div>
+			</div>
+		</section>
+		<!-- =========================== Tours Offers End ====================================== -->
+		{% endfor %}
+		{% endif %}
+		{% if tours %}
+		<!-- ============================ Popular Hotels Start ================================== -->
+		<section>
+			<div class="container">
+
+				<div class="row align-items-center justify-content-center">
+					<div class="col-xl-8 col-lg-9 col-md-11 col-sm-12">
+						<div class="secHeading-wrap text-center mb-5">
+							<h2>Our Tours</h2>
+							<p>Take a look at some of our Tours.</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row justify-content-center g-xl-4 g-lg-4 g-md-3 g-4">
+					{% for tour in tours %}
+					<!-- Single -->
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+						<div class="pop-touritem">
+							<a href="{% url 'tour-detail' tour.slug %}" class="card rounded-3 border m-0">
+								<div class="flight-thumb-wrapper">
+									<div class="popFlights-item-overHidden">
+										<img src="{{tour.image_1.url}}" class="img-fluid" alt="">
+									</div>
+								</div>
+								<div class="touritem-middle position-relative p-3">
+									<div class="touritem-flexxer">
+										<h4 class="city fs-title m-0 fw-bold">
+											<span>{{tour.name|title}}</span>
+										</h4>
+										<p class="detail ellipsis-container">
+											<span class="ellipsis-item__normal">{{tour.location}}</span>
+											<span class="separate ellipsis-item__normal"></span>
+											<span class="ellipsis-item">{{tour.days}}D / {{tour.nights}}N</span>
+										</p>
+
+										<div class="touritem-centrio mt-4">
+											<div class="aments-lists mt-2">
+												<ul class="p-0 row gx-3 gy-2 align-items-start flex-wrap">
+													<li class="col-auto text-dark text-md text-muted-2 d-inline-flex align-items-center"><i
+															class="fa-solid fa-check text-success me-1"></i>{{tour.inclusion_1}}</li>
+													<li class="col-auto text-dark text-md text-muted-2 d-inline-flex align-items-center"><i
+															class="fa-solid fa-check text-success me-1"></i>{{tour.inclusion_2}}</li>
+													<li class="col-auto text-dark text-md text-muted-2 d-inline-flex align-items-center"><i
+															class="fa-solid fa-check text-success me-1"></i>{{tour.inclusion_3}}</li>
+													<li class="col-auto text-dark text-md text-muted-2 d-inline-flex align-items-center"><i
+															class="fa-solid fa-check text-success me-1"></i>{{tour.inclusion_4}}</li>
+													<li class="col-auto text-dark text-md text-muted-2 d-inline-flex align-items-center"><i
+															class="fa-solid fa-check text-success me-1"></i>{{tour.inclusion_5}}</li>
+													<li class="col-auto text-dark text-md text-muted-2 d-inline-flex align-items-center"><i
+															class="fa-solid fa-check text-success me-1"></i>{{tour.inclusion_6}}</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="trsms-foots mt-4">
+										<div class="flts-flex d-flex align-items-end justify-content-between">
+											<div class="flts-flex-strat">
+												{% if tour.discount %}
+												<div class="d-flex align-items-center justify-content-start">
+													<span class="label bg-seegreen text-light">{{tour.discount}}% Off</span>
+												</div>
+												{% endif %}
+												<div class="d-flex align-items-center">
+													{% if tour.discount %}
+													<div class="text-dark fw-bold fs-4">₦{{tour.discounted_price}}</div>
+													<div class="text-muted-2 fw-medium text-decoration-line-through ms-2">₦{{tour.price}}</div>
+													{% else %}
+													<div class="text-dark fw-bold fs-4">₦{{tour.price}}</div>
+													{% endif %}
+												</div>
+												<div class="d-flex align-items-start flex-column">
+													<div class="text-muted-2 text-sm">Per Person</div>
+												</div>
+											</div>
+
+											
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+
+					{% endfor %}
+
+				</div>
+			</div>
+		</section>
+		<!-- ============================ Popular Hotels Start ================================== -->
+		{% endif %}
+
+		<!-- ============================ Booking Title ================================== -->
+		<section class="position-relative">
+			<div class="bg-light-primary position-absolute end-0 start-0 top-0 ht-500"></div>
+			<div class="container">
+
+				<div class="row align-items-center justify-content-center">
+					<div class="col-xl-9 col-lg-11 col-md-12">
+						<div class="prc-capstion text-center">
+							<div class="prc-captions position-relative">
+								<h1 class="xl-heading">Find A Plan That Fits Your <span class="position-relative z-4">Goal<span
+											class="position-absolute top-50 start-50 translate-middle d-none d-md-block mt-4">
+											<svg width="185px" height="23px" viewBox="0 0 445.5 23">
+												<path class="fill-primary opacity-7"
+													d="M409.9,2.6c-9.7-0.6-19.5-1-29.2-1.5c-3.2-0.2-6.4-0.2-9.7-0.3c-7-0.2-14-0.4-20.9-0.5 c-3.9-0.1-7.8-0.2-11.7-0.3c-1.1,0-2.3,0-3.4,0c-2.5,0-5.1,0-7.6,0c-11.5,0-23,0-34.5,0c-2.7,0-5.5,0.1-8.2,0.1 c-6.8,0.1-13.6,0.2-20.3,0.3c-7.7,0.1-15.3,0.1-23,0.3c-12.4,0.3-24.8,0.6-37.1,0.9c-7.2,0.2-14.3,0.3-21.5,0.6 c-12.3,0.5-24.7,1-37,1.5c-6.7,0.3-13.5,0.5-20.2,0.9C112.7,5.3,99.9,6,87.1,6.7C80.3,7.1,73.5,7.4,66.7,8 C54,9.1,41.3,10.1,28.5,11.2c-2.7,0.2-5.5,0.5-8.2,0.7c-5.5,0.5-11,1.2-16.4,1.8c-0.3,0-0.7,0.1-1,0.1c-0.7,0.2-1.2,0.5-1.7,1 C0.4,15.6,0,16.6,0,17.6c0,1,0.4,2,1.1,2.7c0.7,0.7,1.8,1.2,2.7,1.1c6.6-0.7,13.2-1.5,19.8-2.1c6.1-0.5,12.3-1,18.4-1.6 c6.7-0.6,13.4-1.1,20.1-1.7c2.7-0.2,5.4-0.5,8.1-0.7c10.4-0.6,20.9-1.1,31.3-1.7c6.5-0.4,13-0.7,19.5-1.1c2.7-0.1,5.4-0.3,8.1-0.4 c10.3-0.4,20.7-0.8,31-1.2c6.3-0.2,12.5-0.5,18.8-0.7c2.1-0.1,4.2-0.2,6.3-0.2c11.2-0.3,22.3-0.5,33.5-0.8 c6.2-0.1,12.5-0.3,18.7-0.4c2.2-0.1,4.4-0.1,6.7-0.1c11.5-0.1,23-0.2,34.6-0.4c7.2-0.1,14.4-0.1,21.6-0.1c12.2,0,24.5,0.1,36.7,0.1 c2.4,0,4.8,0.1,7.2,0.2c6.8,0.2,13.5,0.4,20.3,0.6c5.1,0.2,10.1,0.3,15.2,0.4c3.6,0.1,7.2,0.4,10.8,0.6c10.6,0.6,21.1,1.2,31.7,1.8 c2.7,0.2,5.4,0.4,8,0.6c2.9,0.2,5.8,0.4,8.6,0.7c0.4,0.1,0.9,0.2,1.3,0.3c1.1,0.2,2.2,0.2,3.2-0.4c0.9-0.5,1.6-1.5,1.9-2.5 c0.6-2.2-0.7-4.5-2.9-5.2c-1.9-0.5-3.9-0.7-5.9-0.9c-1.4-0.1-2.7-0.3-4.1-0.4c-2.6-0.3-5.2-0.4-7.9-0.6 C419.7,3.1,414.8,2.9,409.9,2.6z">
+												</path>
+											</svg>
+										</span></span>
+								</h1>
+								<p class="fs-5">At Bilahid Cation, we provide comprehensive training programs to help you become a skilled travel consultant. Take a look at our training programs.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				
+
+				<!-- Start Price Item -->
+				<div class="row align-items-center justify-content-center g-4 mt-5">
+
+					
+					{% for course in courses %}
+					<div class="col-xl-4 col-lg-4 col-md-6">
+						<div class="card border border-danger rounded-4">
+							<!-- Card header -->
+							<div class="card-header d-flex justify-content-start align-items-center border-bottom py-3 px-4">
+								<span class="square--60 circle bg-light-primary" data-bs-toggle="tooltip" data-bs-placement="top"
+									aria-label="Most Popular" data-bs-original-title="Most Popular">
+									<i class="fa-solid fa-wand-magic-sparkles fs-2 text-primary"></i>
+								</span>
+								<div class="ps-2">
+									<h6 class="text-uppercase fw-semibold text-primary lh-base">{{course.name|title}}</h6>
+									<div class="hstack gap-2">
+										<div class="prcs-currency text-center">
+											<h2 class="fs-1 pricingtable__highlight js-montlypricing mb-0">₦{{course.price}}</h2>
+										</div>
+										<span class="h6 mb-0">/ Per User /</span>
+										<h5>{{course.duration}} Days </h5>
+									</div>
+								</div>
+							</div>
+
+							<!-- Card body -->
+							<div class="card-body p-4">
+								<!-- List -->
+								<ul class="list-unstyled mb-0">
+									<li class="mb-3"><i class="fa-regular fa-circle-check text-success me-2"></i>{{course.detail_1|capfirst}}
+									</li>
+									<li class="mb-3"><i class="fa-regular fa-circle-check text-success me-2"></i>{{course.detail_2|capfirst}}
+									</li>
+									<li class="mb-3"><i class="fa-regular fa-circle-check text-success me-2"></i>{{course.detail_3|capfirst}}
+									</li>
+									<li class="mb-3"><i class="fa-regular fa-circle-check text-success me-2"></i>{{course.detail_4|capfirst}}
+									</li>
+									{% if course.detail_5 %}
+									<li class="mb-3"><i class="fa-regular fa-circle-check text-success me-2"></i>{{course.detail_5|capfirst}}
+									</li>
+									{% endif %}
+									{% if course.detail_6 %}
+									<li class="mb-3"><i class="fa-regular fa-circle-check text-success me-2"></i>{{course.detail_6|capfirst}}
+									</li>
+									{% endif %}
+									{% if course.detail_7 %}
+									<li class="mb-3"><i class="fa-regular fa-circle-check text-success me-2"></i>{{course.detail_7|capfirst}}
+									</li>
+									{% endif %}
+									{% if course.detail_8 %}
+									<li class="mb-3"><i class="fa-regular fa-circle-check text-success me-2"></i>{{course.detail_8|capfirst}}
+									</li>
+									{% endif %}
+									
+									
+								</ul>
+							</div>
+							<form method="post">
+								{% csrf_token %}
+							<!-- Card footer -->
+							<div class="card-footer bg-white py-3 px-4">
+								<a href="{% url 'course-booking' course.slug %}" class="btn btn-primary fw-medium w-100 mb-0">Get Started</a>
+							</div>
+						</form>
+						</div>
+					</div>
+					{% endfor %}
+					
+
+				</div>
+				<!-- End Price Item -->
+
+			</div>
+		</section>
+		<!-- ============================ Booking Title ================================== -->
+
+		<!-- ============================ Form Section ================================== -->
+		<section>
+			<div class="container">
+				
+				<h2> Book A Flight</h2><br>
+				<div class="row align-items-center justify-content-between g-4">
+
+					<div class="col-xl-7 col-lg-7 col-md-12">
+						<div class="contactForm gray-simple p-4 rounded-3">
+							<form method="post" action="{% url 'flight-booking' %}">
+								{% csrf_token %}
+								<div class="row align-items-center">
+
+									<div class="col-xl-12 col-lg-12 col-md-12">
+										<div class="touch-block d-flex flex-column mb-4">
+											<h4>Your details</h4>
+											<p>Please fill the form below and we will get back to you. </p>
+										</div>
+									</div>
+
+									<div class="col-xl-6 col-lg-6 col-md-6">
+										<div class="form-group">
+											<label class="form-label">Your Name*</label>
+											<input required="True" type="text" name="name" placeholder="Musa Ibrahim" class="form-control">
+										</div>
+									</div>
+
+									<div class="col-xl-6 col-lg-6 col-md-6">
+										<div class="form-group">
+											<label class="form-label">Email Address*</label>
+											<input required="True" type="email" name="email" placeholder="musaibrahim@gmail.com" class="form-control">
+										</div>
+									</div>
+
+									<div class="col-xl-6 col-lg-6 col-md-6">
+										<div class="form-group">
+											<label class="form-label">Phone No.*</label>
+											<input required="True" type="text" name="phone" placeholder="08059278040" class="form-control">
+										</div>
+									</div>
+
+									<div class="col-xl-6 col-lg-6 col-md-6">
+										<div class="form-group">
+											<label class="form-label">From*</label>
+											<input required="True" type="text" name="from" placeholder="Abuja" class="form-control">
+										</div>
+									</div>
+
+									<div class="col-xl-6 col-lg-6 col-md-6">
+										<div class="form-group">
+											<label class="form-label">Destination*</label>
+											<input required="True" type="text" name="destination" placeholder="London" class="form-control">
+										</div>
+									</div>
+
+									<div class="col-xl-6 col-lg-6 col-md-6">
+										<div class="form-group">
+											<label class="form-label">Departure Date*</label>
+											<input required="True" type="text" name="date" class="form-control fw-bold choosedate">
+										</div>
+									</div>
+
+
+									<div class="col-xl-12 col-lg-12 col-md-12">
+										<div class="form-group mb-0">
+											<button type="submit" class="btn fw-medium btn-primary">Send Message<i
+													class="fa-solid fa-paper-plane ms-2"></i></button>
+										</div>
+									</div>
+
+								</div>
+							</form>
+						</div>
+					</div>
+
+					
+
+				</div>
+
+			</div>
+		</section>
+		<!-- ============================ Form Section End ================================== -->
+<!-- ============================ Articles Section ================================== -->
+<section>
+	<div class="container">
+		<h2> Visas</h2><br>
+		<div class="row justify-content-center g-4">
+			{% for visa in visas %}
+			<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+				<div class="blogGrid-wrap d-flex flex-column h-100">
+					<div class="blogGrid-caps pt-3">
+						
+						<h4 class="fw-bold fs-5 lh-base">
+							<a href="{% url 'visa-detail' visa.slug %}" class="text-dark">
+								{{ visa.name|title }} <span class="price" style="margin-left: 100px;">${{ visa.price }}</span>
+							</a>
+						</h4>
+						
+						
+						<p class="mb-3">{{visa.description|truncatewords:15}}</p>
+						<a class="text-primary fw-medium" href="{% url 'visa-detail' visa.slug %}">Read More<i class="fa-solid fa-arrow-trend-up ms-2"></i></a>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+			
+
+
+		</div>
+
+
+	</div>
+</section>
+<!-- ============================ Articles Section End ================================== -->
+
+
+		
+
+		<!-- ============================ Our Reviews Start ================================== -->
+		<section class="gray-simple bg-cover" style="background:url(assets/img/reviewbg.png)no-repeat;">
+			<div class="container">
+
+				<div class="row align-items-center justify-content-center">
+					<div class="col-xl-8 col-lg-9 col-md-11 col-sm-12">
+						<div class="secHeading-wrap text-center mb-5">
+							<h2>Loving Reviews By Our Customers</h2>
+							<p>Take a look at what some of our clients have said about us .</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="row align-items-center justify-content-center g-xl-4 g-lg-4 g-md-4 g-3">
+
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+						<div class="card border rounded-3">
+							<div class="card-body">
+								<div class="position-absolute top-0 end-0 mt-3 me-3"><span
+										class="square--40 circle text-primary bg-light-primary"><i
+											class="fa-solid fa-quote-right"></i></span></div>
+								<div class="d-flex align-items-center flex-thumbes">
+									<div class="revws-pic">
+									</div>
+									<div class="revws-caps ps-3">
+										<div class="d-flex align-items-center justify-content-start">
+											<span class="me-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>
+											<span class="me-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>
+											<span class="me-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>
+											<span class="me-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>
+											<span class="me-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>
+										</div>
+									</div>
+								</div>
+								<div class="revws-desc mt-3">
+									<p class="m-0 text-md">My daughter will not stop talking about the trip. It
+										was wonderful, everything went smooth!!!</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+						<div class="card border rounded-3">
+							<div class="card-body">
+								<div class="position-absolute top-0 end-0 mt-3 me-3"><span
+										class="square--40 circle text-primary bg-light-primary"><i
+											class="fa-solid fa-quote-right"></i></span></div>
+								<div class="d-flex align-items-center flex-thumbes">
+									<div class="revws-pic">
+									</div>
+									<div class="revws-caps ps-3">
+										<div class="d-flex align-items-center justify-content-start">
+											<span class="me-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>
+											<span class="me-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>
+											<span class="me-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>
+											<span class="me-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>
+											<span class="me-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>
+										</div>
+									</div>
+								</div>
+								<div class="revws-desc mt-3">
+									<p class="m-0 text-md"> Your attention to detail is unmatched. You will
+										hear from me soon to plan my next trip.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+						<div class="card border rounded-3">
+							<div class="card-body">
+								<div class="position-absolute top-0 end-0 mt-3 me-3"><span
+										class="square--40 circle text-primary bg-light-primary"><i
+											class="fa-solid fa-quote-right"></i></span></div>
+								<div class="d-flex align-items-center flex-thumbes">
+									<div class="revws-pic">
+									</div>
+									<div class="revws-caps ps-3">
+										<div class="d-flex align-items-center justify-content-start">
+											<span class="me-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>
+											<span class="me-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>
+											<span class="me-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>
+											<span class="me-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>
+										</div>
+									</div>
+								</div>
+								<div class="revws-desc mt-3">
+									<p class="m-0 text-md">Everything went smooth.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+						<div class="card border rounded-3">
+							<div class="card-body">
+								<div class="position-absolute top-0 end-0 mt-3 me-3"><span
+										class="square--40 circle text-primary bg-light-primary"><i
+											class="fa-solid fa-quote-right"></i></span></div>
+								<div class="d-flex align-items-center flex-thumbes">
+									<div class="revws-pic">
+									</div>
+									<div class="revws-caps ps-3">
+										<div class="d-flex align-items-center justify-content-start">
+											<span class="me-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>
+											<span class="me-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>
+											<span class="me-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>
+											<span class="me-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>
+											<span class="me-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>
+										</div>
+									</div>
+								</div>
+								<div class="revws-desc mt-3">
+									<p class="m-0 text-md">I can't wait to use Bilahid Cation again!</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+						<div class="card border rounded-3">
+							<div class="card-body">
+								<div class="position-absolute top-0 end-0 mt-3 me-3"><span
+										class="square--40 circle text-primary bg-light-primary"><i
+											class="fa-solid fa-quote-right"></i></span></div>
+								<div class="d-flex align-items-center flex-thumbes">
+									<div class="revws-pic">
+									</div>
+									<div class="revws-caps ps-3">
+										<div class="d-flex align-items-center justify-content-start">
+											<span class="me-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>
+											<span class="me-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>
+											<span class="me-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>
+											<span class="me-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>
+											<span class="me-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>
+										</div>
+									</div>
+								</div>
+								<div class="revws-desc mt-3">
+									<p class="m-0 text-md">Excellent service!!</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+						<div class="card border rounded-3">
+							<div class="card-body">
+								<div class="position-absolute top-0 end-0 mt-3 me-3"><span
+										class="square--40 circle text-primary bg-light-primary"><i
+											class="fa-solid fa-quote-right"></i></span></div>
+								<div class="d-flex align-items-center flex-thumbes">
+									<div class="revws-pic">
+									</div>
+									<div class="revws-caps ps-3">
+										<div class="d-flex align-items-center justify-content-start">
+											<span class="me-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>
+											<span class="me-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>
+											<span class="me-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>
+											<span class="me-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>
+											<span class="me-1 text-xs text-warning"><i class="fa-solid fa-star"></i></span>
+										</div>
+									</div>
+								</div>
+								<div class="revws-desc mt-3">
+									<p class="m-0 text-md">I had a blast on my last tour</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					
+
+				</div>
+			</div>
+		</section>
+		<!-- ============================ Our Reviews End ================================== -->
+
+
+		
+
+		
+{% endblock content %}

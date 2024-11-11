@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+
+		<!-- ============================ Booking Title ================================== -->
+		<section class="bg-cover position-relative" style="background:url({% static 'images/background.png' %})no-repeat;" data-overlay="5">
+			<div class="container">
+				<div class="row align-items-center justify-content-center">
+					<div class="col-xl-7 col-lg-9 col-md-12">
+
+						<div class="fpc-capstion text-center my-4">
+							<div class="fpc-captions">
+								<h1 class="xl-heading text-light">Visas</h1>
+								<p class="text-light">We offer aid for visa applications. </p>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="fpc-banner"></div>
+		</section>
+		<!-- ============================ Booking Title ================================== -->
+
+
+		<!-- ============================ Articles Section ================================== -->
+		<section>
+			<div class="container">
+
+				<div class="row justify-content-center g-4">
+					{% for visa in visas %}
+					<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+						<div class="blogGrid-wrap d-flex flex-column h-100">
+							<div class="blogGrid-caps pt-3">
+								
+								<h4 class="fw-bold fs-5 lh-base">
+									<a href="{% url 'visa-detail' visa.slug %}" class="text-dark">
+										{{ visa.name|title }} <span class="price" style="margin-left: 100px;">${{ visa.price }}</span>
+									</a>
+								</h4>
+								
+								
+								<p class="mb-3">{{visa.description|truncatewords:15}}</p>
+								<a class="text-primary fw-medium" href="{% url 'visa-detail' visa.slug %}">Read More<i class="fa-solid fa-arrow-trend-up ms-2"></i></a>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+					
+
+
+					
+
+				</div>
+
+				<div class="col-xl-12 col-lg-12 col-12">
+					<div class="pags card py-2 px-5">
+						<nav aria-label="Page navigation example">
+							<ul class="pagination m-0 p-0">
+								{% if visas.has_previous %}
+								<li class="page-item">
+									<a class="page-link" href="?page={{visas.previous_page_number}}" aria-label="Previous">
+										<span aria-hidden="true"><i class="fa-solid fa-arrow-left-long"></i></span>
+									</a>
+								</li>
+								{% endif %}
+								{% for page in visas.paginator.page_range %}
+								<li class="page-item active"><a class="page-link" href="?page={{ page }}">{{ page }}</a></li>
+								{% endfor %}
+								{% if visas.has_next %}
+								<li class="page-item">
+									<a class="page-link" href="?page={{visas.next_page_number}}" aria-label="Next">
+										<span aria-hidden="true"><i class="fa-solid fa-arrow-right-long"></i></span>
+									</a>
+								</li>
+								{% endif %}
+							</ul>
+						</nav>
+					</div>
+				</div>
+
+			</div>
+		</section>
+		<!-- ============================ Articles Section End ================================== -->
+
+{% endblock content %}
