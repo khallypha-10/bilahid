@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+{% for message in messages %}
+		<div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>
+		<i class="fa-solid fa-thumbs-up"></i> {{ message }}
+		</div>
+{% endfor %}
+
+		<!-- ============================ Booking Title ================================== -->
+		<section class="bg-cover position-relative" style="background:url({% static 'images/background.png' %})no-repeat;" data-overlay="5">
+			<div class="container">
+				<div class="row align-items-center justify-content-center">
+					<div class="col-xl-7 col-lg-9 col-md-12">
+
+						<div class="fpc-capstion text-center my-4">
+							<div class="fpc-captions">
+								<h1 class="xl-heading text-light">Book Course</h1>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- ============================ Booking Title ================================== -->
+
+
+		<!-- ============================ Form Section ================================== -->
+		<section>
+			<div class="container">
+				
+
+				<div class="row align-items-center justify-content-between g-4">
+
+					<div class="col-xl-7 col-lg-7 col-md-12">
+						<div class="contactForm gray-simple p-4 rounded-3">
+							<form method="post">
+								{% csrf_token %}
+								<div class="row align-items-center">
+
+									<div class="col-xl-12 col-lg-12 col-md-12">
+										<div class="touch-block d-flex flex-column mb-4">
+											<h2>Your details</h2>
+											<p>Please fill the form below to buy the selected course. </p>
+										</div>
+									</div>
+
+									<div class="col-xl-6 col-lg-6 col-md-6">
+										<div class="form-group">
+											<label class="form-label">Your Name*</label>
+											<input required="True" type="text" name="name" class="form-control">
+										</div>
+									</div>
+
+									<div class="col-xl-6 col-lg-6 col-md-6">
+										<div class="form-group">
+											<label class="form-label">Email Address*</label>
+											<input required="True" type="email" name="email" class="form-control">
+										</div>
+									</div>
+
+									<div class="col-xl-6 col-lg-6 col-md-6">
+										<div class="form-group">
+											<label class="form-label">Phone No.*</label>
+											<input required="True" type="text" name="phone" class="form-control">
+										</div>
+									</div>
+
+
+									<div class="col-xl-12 col-lg-12 col-md-12">
+										<div class="form-group mb-0">
+											<button type="submit" class="btn fw-medium btn-primary">Continue<i
+													class="fa-solid fa-paper-plane ms-2"></i></button>
+										</div>
+									</div>
+
+								</div>
+							</form>
+						</div>
+					</div>
+
+					<div class="col-xl-5 col-lg-5 col-md-12">
+						<h3> You selected: </h3>
+				
+					
+						<div class="card border border-danger rounded-4">
+							<!-- Card header -->
+							<div class="card-header d-flex justify-content-start align-items-center border-bottom py-3 px-4">
+								<span class="square--60 circle bg-light-primary" data-bs-toggle="tooltip" data-bs-placement="top"
+									aria-label="Most Popular" data-bs-original-title="Most Popular">
+									<i class="fa-solid fa-wand-magic-sparkles fs-2 text-primary"></i>
+								</span>
+								<div class="ps-2">
+									<h6 class="text-uppercase fw-semibold text-primary lh-base">{{course.name|title}}</h6>
+									<div class="hstack gap-2">
+										<div class="prcs-currency text-center">
+											<h2 class="fs-1 pricingtable__highlight js-montlypricing mb-0">₦{{course.price}}</h2>
+										</div>
+										<span class="h6 mb-0">/ Per User /</span>
+										<h5>{{course.duration}} Days </h5>
+									</div>
+								</div>
+							</div>
+							
+							<!-- Card body -->
+							<div class="card-body p-4">
+								<!-- List -->
+								<ul class="list-unstyled mb-0">
+									<li class="mb-3"><i class="fa-regular fa-circle-check text-success me-2"></i>{{course.detail_1|capfirst}}
+									</li>
+									<li class="mb-3"><i class="fa-regular fa-circle-check text-success me-2"></i>{{course.detail_2|capfirst}}
+									</li>
+									<li class="mb-3"><i class="fa-regular fa-circle-check text-success me-2"></i>{{course.detail_3|capfirst}}
+									</li>
+									<li class="mb-3"><i class="fa-regular fa-circle-check text-success me-2"></i>{{course.detail_4|capfirst}}
+									</li>
+									{% if course.detail_5 %}
+									<li class="mb-3"><i class="fa-regular fa-circle-check text-success me-2"></i>{{course.detail_5|capfirst}}
+									</li>
+									{% endif %}
+									{% if course.detail_6 %}
+									<li class="mb-3"><i class="fa-regular fa-circle-check text-success me-2"></i>{{course.detail_6|capfirst}}
+									</li>
+									{% endif %}
+									{% if course.detail_7 %}
+									<li class="mb-3"><i class="fa-regular fa-circle-check text-success me-2"></i>{{course.detail_7|capfirst}}
+									</li>
+									{% endif %}
+									{% if course.detail_8 %}
+									<li class="mb-3"><i class="fa-regular fa-circle-check text-success me-2"></i>{{course.detail_8|capfirst}}
+									</li>
+									{% endif %}
+									
+									
+								</ul>
+							</div>
+							
+						</div>
+					</div>
+					<br>
+					</div>
+
+				</div>
+
+			</div>
+		</section>
+		<!-- ============================ Form Section End ================================== -->
+
+{% endblock content %}

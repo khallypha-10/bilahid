@@ -1,0 +1,246 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+		<!-- ============================ Hero Banner  Start================================== -->
+		<div class="py-5 bg-primary position-relative" style="margin-top: 200px;">
+			<div class="container" >
+				<form method="post" action="{% url 'search' %}">
+					{% csrf_token %}
+					<!-- Search Form -->
+					<div class="row justify-content-center align-items-center">
+						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+							<div class="search-wrap position-relative">
+								<div class="row align-items-end gy-3 gx-md-3 gx-sm-2">
+
+									<div class="col-xl-8 col-lg-7 col-md-12">
+										<div class="row gy-3 gx-md-3 gx-sm-2">
+											<div class="col-xl-10 col-lg-6 col-md-6 col-sm-6 position-relative">
+												<div class="input-group mb-3">
+													<input class="form-control" name="q" type="text" placeholder="Search location" aria-label="default input example">
+												  </div>
+											</div>
+											
+										</div>
+									</div>
+									<div class="col-xl-4 col-lg-5 col-md-12">
+										
+											<div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+												<div class="form-group mb-0">
+													<button type="Submit" class="btn btn-whites text-primary full-width fw-medium"><i
+															class="fa-solid fa-magnifying-glass me-2"></i>Search</button>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- </row> -->
+				</form>
+			</div>
+		</div>
+		<!-- ============================ Hero Banner End ================================== -->
+
+
+		<!-- ============================ Searching Destination Lists Start ================================== -->
+		<section class="gray-simple">
+			<div class="container">
+				<div class="row justify-content-between gy-4 gx-xl-4 gx-lg-3 gx-md-3 gx-4">
+
+					<!-- Sidebar -->
+					<div class="col-xl-3 col-lg-4 col-md-12">
+						<div class="filter-searchBar bg-white rounded-3">
+							<div class="filter-searchBar-head border-bottom">
+								<div class="searchBar-headerBody d-flex align-items-start justify-content-between px-3 py-3">
+									<div class="searchBar-headerfirst">
+										<h6 class="fw-bold fs-5 m-0">Filter</h6>
+									</div>
+									
+								</div>
+							</div>
+
+							<div class="filter-searchBar-body">
+
+
+
+								<!-- Popular Filters -->
+								<div class="searchBar-single px-3 py-3 border-bottom">
+									
+									
+
+								</div>
+							<!-- Include jQuery in your template -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Pricing Range Filter -->
+<div class="searchBar-single px-3 py-3 border-bottom">
+    <div class="searchBar-single-title d-flex mb-3">
+        <h6 class="sidebar-subTitle fs-6 fw-medium m-0">Pricing Range in ₦</h6>
+    </div>
+    <div class="searchBar-single-wrap">
+        <input type="text" class="js-range-slider" name="my_range" value="" data-skin="round"
+            data-type="double" data-min="100000" data-max="20000000" data-grid="false">
+    </div>
+</div>
+
+<!-- Results container -->
+<div id="results-container">
+    <!-- The results will be dynamically loaded here -->
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('.js-range-slider').on('change', function() {
+            var rangeValues = $(this).val().split(';');  // Assuming the slider returns values in format min;max
+            var minPrice = rangeValues[0];
+            var maxPrice = rangeValues[1];
+            
+            $.ajax({
+                url: "{% url 'price-slider' %}",
+                data: {
+                    min_price: minPrice,
+                    max_price: maxPrice
+                },
+                success: function(data) {
+                    var resultsHtml = '';
+                    $.each(data.tours, function(index, tour) {
+                        resultsHtml += '<div class="tour-item">';
+                        resultsHtml += '<h4>' + tour.name + '</h4>';
+                        resultsHtml += '<p>Location: ' + tour.location + '</p>';
+                        resultsHtml += '<p>Price: ' + tour.price + '</p>';
+                        if (tour.discount) {
+                            resultsHtml += '<p>Discount: ' + tour.discount + '%</p>';
+                        }
+                        resultsHtml += '</div>';
+						resultsHtml += '<a href="' + tour.url + '" class="btn btn-md btn-primary full-width fw-medium px-lg-4">See More<i class="fa-solid fa-arrow-trend-up ms-2"></i></a>';
+                    });
+                    $('#results-container').html(resultsHtml);
+                },
+                error: function(xhr, status, error) {
+                    console.log("AJAX Error: " + status + " - " + error);
+                }
+            });
+        });
+    });
+</script>
+
+							
+
+							</div>
+						</div>
+					</div>
+
+					<!-- All List -->
+					<div class="col-xl-9 col-lg-8 col-md-12">
+						<div class="row align-items-center justify-content-between">
+							
+							
+						</div>
+
+						<div class="row align-items-center g-4 mt-2">
+							{% for tour in tours %}
+							<!-- Single List -->
+							<div class="col-xl-12 col-lg-12 col-md-12">
+								<div class="card list-layout-block rounded-3 p-3">
+									<div class="row">
+
+										<div class="col-xl-4 col-lg-3 col-md">
+											<div class="cardImage__caps rounded-2 overflow-hidden h-100">
+												<a href="{% url 'tour-detail' tour.slug %}"><img class="img-fluid h-100 object-fit" src=" {{tour.image_1.url}}" alt="image"></a>
+											</div>
+										</div>
+
+										<div class="col-xl col-lg col-md">
+											<div class="listLayout_midCaps mt-md-0 mt-3 mb-md-0 mb-3">
+												<div class="d-flex align-items-center justify-content-start mb-1">
+													<span class="label bg-light-success text-success">{{tour.location|title}}</span>
+												</div>
+												<a href="{% url 'tour-detail' tour.slug %}"><h4 class="fs-5 fw-bold mb-1">{{tour.name|title}}</h4></a>
+												<div class="exlop-date"><span class="text-dark fw-medium"><i
+														class="fa-regular fa-calendar me-2"></i>{{tour.date_depart}}</span></div>
+											</div>
+												<div
+											class="single-card d-flex align-items-center justify-content-between px-3 py-3 border-top border-bottom">
+											
+												<p>{{tour.overview|truncatewords:14}}</p>
+												<div class="detail ellipsis-container mt-3">
+													<span class="ellipsis">{{tour.inclusion_1|title}}</span>
+													<span class="ellipsis">{{tour.inclusion_2|title}}</span>
+													<span class="ellipsis">{{tour.inclusion_3|title}}</span>
+													<span class="ellipsis">{{tour.inclusion_4|title}}</span>
+													<span class="ellipsis">{{tour.inclusion_5|title}}</span>
+												</div>
+											</div>
+										</div>
+
+										<div
+											class="col-xl-auto col-lg-auto col-md-auto text-right text-md-left d-flex align-items-start align-items-md-end flex-column">
+											
+
+											<div class="position-relative mt-auto full-width">
+												{% if tour.discount %}
+												<div class="d-flex align-items-center justify-content-start justify-content-md-end mb-1">
+													<span class="label bg-light-danger text-danger">{{tour.discount}}% Off</span>
+												</div>
+												<div class="d-flex align-items-center justify-content-start justify-content-md-end">
+													<div class="text-muted-2 fw-medium text-decoration-line-through me-2">₦{{tour.price}}</div>
+													<div class="text-dark fw-bold fs-3">₦{{tour.discounted_price}}</div>
+												</div>
+												{% else %}
+												<div class="d-flex align-items-center justify-content-start justify-content-md-end">
+													<div class="text-dark fw-bold fs-3">₦{{tour.price}}</div>
+												</div>
+												{% endif %}
+												<div class="d-flex align-items-start align-items-md-end text-start text-md-end flex-column">
+													<a href="{% url 'tour-detail' tour.slug %}" class="btn btn-md btn-primary full-width fw-medium px-lg-4">See More<i
+															class="fa-solid fa-arrow-trend-up ms-2"></i></a>
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+							<!-- /Single List -->
+							{% endfor %}
+						
+
+							<div class="col-xl-12 col-lg-12 col-12">
+								<div class="pags card py-2 px-5">
+									<nav aria-label="Page navigation example">
+										<ul class="pagination m-0 p-0">
+											{% if tours.has_previous %}
+											<li class="page-item">
+												<a class="page-link" href="?page={{tours.previous_page_number}}" aria-label="Previous">
+													<span aria-hidden="true"><i class="fa-solid fa-arrow-left-long"></i></span>
+												</a>
+											</li>
+											{% endif %}
+											{% for page in tours.paginator.page_range %}
+											<li class="page-item active"><a class="page-link" href="?page={{ page }}">{{ page }}</a></li>
+											{% endfor %}
+											{% if tours.has_next %}
+											<li class="page-item">
+												<a class="page-link" href="?page={{tours.next_page_number}}" aria-label="Next">
+													<span aria-hidden="true"><i class="fa-solid fa-arrow-right-long"></i></span>
+												</a>
+											</li>
+											{% endif %}
+										</ul>
+									</nav>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<!-- ============================ Destination Searches Lists End ================================== -->
+
+{% endblock content %}
