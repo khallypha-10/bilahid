@@ -208,14 +208,15 @@
 
 					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
 						<div class="pop-touritems">
-							<a href="#" class="card rounded-3 border br-dashed border-2 m-0">
+							<a href="{% url 'tour-detail' tour.slug %}" class="card rounded-3 border br-dashed border-2 m-0">
 								<div class="offers-container d-flex align-items-center justify-content-start p-2">
 									<div class="offers-flex position-relative">
 										<div class="offer-tags position-absolute start-0 top-0 mt-2 ms-2"><span
 												class="label text-light bg-danger fw-medium">{{tour.discount}}% Off</span></div>
-										<div class="offers-pic"><img src="{{tour.image_1.url}}" class="img-fluid rounded" width="110" alt="">
+										<div class="offers-pic"><img src="{{tour.image_1.url}}" class="img-fluid rounded" width="110" alt="">{% if tour.image_2 %}<img src="{{tour.image_2.url}}" class="img-fluid rounded" width="110" alt="">{% endif %}
 										</div>
 									</div>
+									<a href="{% url 'tour-detail' tour.slug %}">
 									<div class="offers-captions ps-3">
 										<h4 class="city fs-6 m-0 fw-bold">
 											<span>{{tour.name|title}}</span>
@@ -232,6 +233,7 @@
 													<div class="text-muted-2 fw-medium text-decoration-line-through ms-2">₦{{tour.price}}</div>
 										</div>
 									</div>
+								</a>
 								</div>
 							</a>
 						</div>

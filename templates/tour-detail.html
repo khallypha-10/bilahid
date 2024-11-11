@@ -52,27 +52,38 @@
 											alt="image" class="rounded-2 img-fluid"></a>
 								</div>
 
+								
 								<div class="galleryGrid__item position-relative">
+									{% if image_2 %}
 									<a href="{{tour.image_2.url}}" data-lightbox="roadtrip"><img src="{{tour.image_2.url}}"
 											alt="image" class="rounded-2 img-fluid"></a>
+											{% endif %}
+									{% if image_3 %}
 									<div class="position-absolute end-0 bottom-0 mb-3 me-3">
 										<a href="{{tour.image_3.url}}" data-lightbox="roadtrip"
 											class="btn btn-md btn-whites fw-medium text-dark"><i class="fa-solid fa-caret-right me-1"></i>
 											View Photos</a>
 									</div>
+									{% endif %}
 								</div>
+								{% if image_4 %}
 								<div class="galleryGrid__item">
 									<a href="{{tour.image_4.url}}" data-lightbox="roadtrip"><img src="{{tour.image_4.url}}"
 											alt="image" class="rounded-2 img-fluid"></a>
 								</div>
+								{% endif %}
+								{% if image_5 %}
 								<div class="galleryGrid__item">
 									<a href="{{tour.image_5.url}}" data-lightbox="roadtrip"><img src="{{tour.image_5.url}}"
 											alt="image" class="rounded-2 img-fluid"></a>
 								</div>
+								{% endif %}
+								{% if image_6 %}
 								<div class="galleryGrid__item">
 									<a href="{{tour.image_6.url}}" data-lightbox="roadtrip"><img src="{{tour.image_6.url}}"
 											alt="image" class="rounded-2 img-fluid"></a>
 								</div>
+								{% endif %}
 							</div>
 
 						</div>
