@@ -328,10 +328,10 @@
 									<div class="card border rounded-3 mb-4">
 										<div class="single-card px-3 py-3">
 											{% if tour.discount %}
-											<p class="text-sm mb-0 lh-0"><del>${{tour.price}}</del></p>
-											<p class="font12 lh-1 mb-0"><span class="text-dark fs-3 fw-bold"><span>${{tour.discounted_price}}</span></span>
+											<p class="text-sm mb-0 lh-0"><del>₦{{tour.price}}</del></p>
+											<p class="font12 lh-1 mb-0"><span class="text-dark fs-3 fw-bold"><span>₦{{tour.discounted_price}}</span></span>
 											{% else %}
-											<p class="font12 lh-1 mb-0"><span class="text-dark fs-3 fw-bold"><span>${{tour.discounted_price}}</span></span>
+											<p class="font12 lh-1 mb-0"><span class="text-dark fs-3 fw-bold"><span>₦{{tour.discounted_price}}</span></span>
 											{% endif %}
 											
 											per
@@ -427,11 +427,11 @@
 											</div>
 											<div class="booking-wrapes d-flex align-items-start justify-content-start flex-column">
 												{% if not tour.discount %}
-												<h5 class="fs-5 low-price m-0">$<span class="price text-primary">{{tour.price}}</span></h5>
+												<h5 class="fs-5 low-price m-0">₦<span class="price text-primary">{{tour.price}}</span></h5>
 												{% else %}
 												<div class="d-flex align-items-center justify-content-start justify-content-md-end">
-													<div class="text-muted-2 fw-medium text-decoration-line-through me-2">${{tour.price}}</div>
-													<h5 class="fs-5 low-price m-0">$<span class="price text-primary">{{tour.discounted_price}}</span></h5>
+													<div class="text-muted-2 fw-medium text-decoration-line-through me-2">₦{{tour.price}}</div>
+													<h5 class="fs-5 low-price m-0">₦<span class="price text-primary">{{tour.discounted_price}}</span></h5>
 												</div>
 												{% endif %}
 												<div class="text-muted-2 text-sm">{{tour.group}} Group</div>
